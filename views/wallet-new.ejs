@@ -7,18 +7,23 @@
     <link rel="stylesheet" type="text/css" href="../stylesheets/wallet-new.css">
 </head>
 <body>
-    <div class="container">
-        <div class="main">
-        <form action="/manage/wallet-new-action" enctype="multipart/form-data" method="POST">
-            <input type="text" placeholder="名称" name="name">
-            <input type="text" placeholder="类别" name="type">
-            <input type="text" placeholder="材质" name="material">
-            <input type="text" placeholder="颜色" name="color">
-            <input type="text" placeholder="价格" name="price">
-            <input type="file" name="file">
-            <input type="submit" value="提交">
-        </form>
+<div class="container">
+    <div class="main">
+
+        <% include top-navigation.ejs %>
+
+        <div>
+            <form action="" method="POST">
+                <input type="text" placeholder="名称" name="name">
+                <input type="text" placeholder="类别" name="type">
+                <input type="text" placeholder="材质" name="material">
+                <input type="text" placeholder="颜色" name="color">
+                <input type="text" placeholder="价格" name="price">
+                <input type="file" name="file">
+                <input type="submit" value="提交">
+            </form>
         </div>
     </div>
+</div>
 </body>
 </html>

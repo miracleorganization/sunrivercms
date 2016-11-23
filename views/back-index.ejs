@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="ch">
 <head>
-	<meta charset="UTF-8">
-	<title>后台管理</title>
+    <meta charset="UTF-8">
+    <title>SUNRIVER - 主页</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/common.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/back-index.css">
+    <script type="text/javascript" src="../javascripts/lib/require.js"></script>
+    <script src="../javascripts/main.js"></script>
 </head>
 <body>
-	WELCOME, <%= username %>!
+<div class="container">
+    <div class="main">
+        <% include top-navigation.ejs %>
+    </div>
+</div>
 </body>
 </html>

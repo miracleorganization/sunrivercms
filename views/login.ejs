@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>SUNRIVER - LOGGIN</title>
+    <title>SUNRIVER - 登陆</title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/common.css">
     <link rel="stylesheet" type="text/css" href="../stylesheets/login.css">
 </head>
@@ -11,13 +11,13 @@
 <body>
 <div class="container">
     <div class="main">
-    	
-		<% if (typeof wrong != 'undefined') { %>
-    	<p class="wrong-information"><%= wrong %></p>
-    	<% } %>
+
+        <% if (typeof wrong != 'undefined') { %>
+        <p class="wrong-information"><%= wrong %></p>
+        <% } %>
 
         <img class="login-sunriver" src="../images/sunriver-text.png" alt="sunriver">
-        <form class="login-form" action="/users/login-action" method="POST">
+        <form class="login-form" action="" method="POST">
             <input class="login-username" type="text" placeholder="请输入账号" name="username" required>
             <input class="login-password" type="password" placeholder="请输入密码" name="password" required>
             <input class="login-submit" type="submit" value="登陆">
