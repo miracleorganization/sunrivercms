@@ -1,0 +1,77 @@
+html, body{
+    height: 100%;
+}
+.container{
+    background: url('../images/background-img-01.jpg') top center no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+.main{
+    height: 100%;
+    position: relative;
+}
+.wrong-information{
+    height: 30px;
+    line-height: 30px;
+    color: #ffffff;
+    position: absolute;
+    left: 50%;
+    margin-left: 200px;
+    top: 50%;
+    margin-top: -15px;
+    background-color: peru;
+    padding: 0 10px;
+    border-radius: 5px;
+}
+.login-sunriver{
+    display: block;
+    vertical-align: top;
+    position: absolute;
+    width: 420px;
+    height: 60px;
+    left: 50%;
+    margin-left: -210px;
+    top: 15%;
+}
+.login-form{
+    display: block;
+    text-align: center;
+    height: 110px;
+    position: absolute;
+    top: 50%;
+    margin-top: -95px;
+    left: 50%;
+    margin-left: -190px;
+    background: rgba(0,0,0, .2);
+    padding: 40px;
+    border-radius: 5px;
+}
+.login-username, .login-password{
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    padding: 0 10px;
+    width: 300px;
+    border: 1px solid #d5d5d5;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background: rgba(255,255,255,0.8);
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.login-submit{
+    display: block;
+    width: 300px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    -webkit-appearance: none;
+    border: none;
+    margin: 0 auto;
+    cursor: pointer;
+    background: #000;
+    color: #ffffff;
+}
