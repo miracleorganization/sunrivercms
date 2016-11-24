@@ -8,7 +8,8 @@ var LoginFilter = require('../filter/login-filter');
 router.get("/wallet-new", function(req, res, next) {
 	LoginFilter(req, res, function(status){
 		if(status){
-			res.render('wallet-new',{});
+			var username = req.session.username;
+			res.render('wallet-new',{username: username});
 		}else{
 			res.render('login', {});
 		}

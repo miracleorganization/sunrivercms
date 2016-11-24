@@ -4,7 +4,11 @@ var userDao = require("../dao/userDao");
 
 // 登陆
 router.get('/login', function(req, res, next) {
-    res.render('login', {});
+    if(req.session.login){
+        res.redirect("/back-index");
+    }else{
+        res.render('login', {});
+    }
 });
 
 // 登陆 action
