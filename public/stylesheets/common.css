@@ -39,7 +39,6 @@ li {
     position: absolute;
     left: 50%;
     top: 0;
-    border-bottom: 1px solid #ffffff;
     width: 10000px;
 }
 
@@ -49,11 +48,12 @@ li {
 }
 
 .top-navigation-level-1 {
+    height: 40px;
+    border-bottom: 1px solid #ffffff;
 }
 
 .top-navigation-level-1 > li {
     float: left;
-    height: 40px;
     line-height: 40px;
     padding: 0 10px;
 }
@@ -74,6 +74,7 @@ li {
 }
 
 .top-navigation-level-2 {
+    display: none;
     background: rgba(255, 255, 255, .7);
 }
 
@@ -114,6 +115,7 @@ li {
     background: rgba(255, 255, 255, .7);
     right: -10px;
     top: 30px;
+    display: none;
 }
 
 .welcome-information ul li {

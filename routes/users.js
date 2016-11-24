@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var userDao = require("../dao/userDao")
+var userDao = require("../dao/userDao");
 
 // 登陆
 router.get('/login', function(req, res, next) {
@@ -14,8 +14,10 @@ router.post('/login-action', function(req, res, next) {
     var password = params.password;
     userDao.queryByUsername(username, password, function(result) {
         if (result.length == 1 && result[0]) {
+            var res_username = result[0].username;
             req.session.login = true;
-            res.render('back-index', { username: 'admin' });
+            req.session.username = res_username;
+            res.render('back-index', { username: res_username });
         } else {
             res.render('login', { wrong: '请仔细检查账号和密码' });
         }
