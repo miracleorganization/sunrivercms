@@ -1,5 +1,5 @@
 var mysql = require("mysql");
-var dbConfig = require("../config/dbConfig")
+var dbConfig = require("../config/dbConfig");
 
 module.exports = {
     connectServer: function() {

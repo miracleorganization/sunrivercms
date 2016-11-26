@@ -1,0 +1,226 @@
+html {
+    background: rgb(40, 40, 40);
+}
+
+.brand-list-content {
+    background: rgba(255, 255, 255, .2);
+    color: #ffffff;
+    padding: 0 10px;
+    position: relative;
+    width: 1150px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.brand-list-new-item {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    right: -15px;
+    top: -15px;
+    color: #ffffff;
+    background-color: #cc0000;
+    font-size: 12px;
+    border-radius: 10000px;
+    cursor: pointer;
+}
+
+.brand-list-title {
+    height: 50px;
+    line-height: 50px;
+    font-size: 0;
+    border-bottom: 1px solid #ffffff;
+}
+
+.brand-list-title > span {
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+}
+
+.brand-list-title-1 {
+    width: 40%;
+}
+
+.brand-list-title-2 {
+    width: 40%;
+}
+
+.brand-list-title-3 {
+    width: 20%;
+}
+
+.brand-list-row {
+    height: 40px;
+    line-height: 40px;
+    font-size: 0;
+    border-bottom: 1px dashed #8a8a8a;
+}
+
+.brand-list-row:last-child {
+    border-bottom: none;
+}
+
+.brand-list-row > span {
+    display: inline-block;
+    font-size: 13px;
+    text-align: center;
+}
+
+.brand-list-col-1 {
+    width: 40%;
+}
+
+.brand-list-col-2 {
+    width: 40%;
+}
+
+.brand-list-col-3 {
+    width: 20%;
+}
+
+.brand-list-col-3 > span {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.brand-list-col-3 > span:hover {
+    color: #cc0000;
+}
+
+.brand-list-float {
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, .6);
+    left: 0;
+    top: 0;
+    z-index: 99999999;
+}
+
+.brand-list-float-box {
+    width: 400px;
+    height: 200px;
+    background: #f5f5f5;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -100px;
+}
+
+.brand-list-float-cancel {
+    color: #ffffff;
+    background: #cc0000;
+    width: 20px;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.brand-list-item-warning {
+    color: #cc0000;
+    text-align: center;
+    font-size: 16px;
+    margin: 50px 0;
+    line-height: 25px;
+}
+
+.brand-list-item-warning > p {
+    font-size: 12px;
+}
+
+.brand-list-item-option {
+    text-align: center;
+    position: absolute;
+    width: 400px;
+    bottom: 40px;
+    left: 0;
+}
+
+.brand-list-item-option > button {
+    display: inline-block;
+    width: 150px;
+    height: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    color: #ffffff;
+    background: #000;
+    border: none;
+}
+
+.brand-list-option-box {
+    position: absolute;
+    width: 500px;
+    margin-left: -250px;
+    margin-top: -150px;
+    left: 50%;
+    top: 50%;
+    background: #f5f5f5;
+}
+
+.brand-list-option-box-item {
+    line-height: 40px;
+    margin: 0 auto;
+    width: 460px;
+    border-bottom: 1px dashed #8a8a8a;
+    font-size: 0;
+}
+
+.brand-list-option-box .brand-list-option-box-item:nth-last-of-type(2) {
+    border-bottom: none;
+    margin-bottom: 40px;
+}
+.brand-list-option-box .brand-list-option-box-item:nth-child(2){
+    margin-top: 40px;
+}
+
+
+.brand-list-option-box-item > span {
+    display: inline-block;
+    font-size: 13px;
+    width: 25%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 10px;
+    line-height: 40px;
+    height: 40px;
+    text-align: right;
+}
+
+.brand-list-option-box-item > input {
+    display: inline-block;
+    font-size: 12px;
+    height: 25px;
+    line-height: 22px;
+    width: 65%;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+.brand-list-option-box-item-option{
+    text-align: center;
+    width: 500px;
+    margin-bottom: 40px;
+}
+.brand-list-option-box-item-option > button {
+    display: inline-block;
+    width: 150px;
+    height: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    color: #ffffff;
+    background: #000;
+    border: none;
+}

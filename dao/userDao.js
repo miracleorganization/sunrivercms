@@ -5,7 +5,6 @@ module.exports = {
     	var con = dbConnection.connectServer();
     	con.query('INSERT INTO user(username, password, sex) VALUES(?, ?, ?)',[username, password, sex], function(err, result){
     		if(result){
-    			console.log(result);
     			result = {
     				code: "200",
     				msg: "添加成功"

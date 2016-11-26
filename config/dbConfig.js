@@ -6,4 +6,4 @@ module.exports = {
         database: "mycms",
         port: "3306"
     }
-}
+};

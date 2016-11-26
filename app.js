@@ -20,13 +20,13 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     name: 'sunriverlogginstatus',
     secret: 'SUNRIVER mycms YYYYmmDDHHMMSS',
-    cookie: { maxAge: null }, //设置成 null ，就会成为浏览器 session，浏览器不关闭，session 一直保留；浏览器关闭，session 消失
+    cookie: {maxAge: null}, //设置成 null ，就会成为浏览器 session，浏览器不关闭，session 一直保留；浏览器关闭，session 消失
     resave: false,
     saveUninitialized: true
 }));
