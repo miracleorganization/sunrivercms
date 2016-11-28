@@ -109,4 +109,18 @@ router.post('/brand-list-delete-action', function (req, res, next) {
     });
 });
 
+// 修改品牌 action
+router.post('/brand-list-update-action', function (req, res, next) {
+    LoginFilter(req, res, function (status) {
+        if (status) {
+            var params = req.body;
+            brandLiseService.brandListUpdate(params, function (jsonResult) {
+                res.json(jsonResult);
+            })
+        } else {
+            res.render('login');
+        }
+    })
+});
+
 module.exports = router;

@@ -5,19 +5,32 @@
 require(['jquery'], function ($) {
     $(function () {
         init();
+        var _dom = null;
 
         function init() {
-            $("#create").on("click", openCreateFloat);
+            $("#create").on("click", {option: "new"}, openCreateFloat);
             $(".brand-list-float-cancel, .brand-list-item-option-1").on("click", closeFloat);
-            $("#create-edit-float .brand-list-item-option-2").on("click", {option: "new"}, submit);
+            $("#create-edit-float .brand-list-item-option-2").on("click", submit);
             $(".brand-list-row .delete").on("click", deleteBrand);
+            $(".brand-list-row .edit").on("click", {option: "edit"}, openCreateFloat);
         }
 
         /**
-         * 新建功能 浮层
+         * 显示浮层
          */
-        function openCreateFloat() {
+        function openCreateFloat(e) {
+            var t = $(this);
+            $("#brandName").val("");
+            $("#brandSign").val("");
             $("#create-edit-float").show();
+
+            if (e.data.option == "edit") {
+                getOriginalData(t);
+                $("#create-edit-float").attr("data-option", "edit");
+            }
+            if (e.data.option == "new") {
+                $("#create-edit-float").attr("data-option", "new");
+            }
         }
 
         /**
@@ -30,18 +43,25 @@ require(['jquery'], function ($) {
         /**
          * 提交
          */
-        function submit(e) {
+        function submit() {
+            var option = $("#create-edit-float").attr("data-option");
             var params = searchData();
             if (params) {
-                if (e.data.option == 'new') {
+                if (option == 'new') {
                     var URL = "/manage/brand-list-new-action";
                     ajaxNew(URL, params);
                 }
-                if (e.data.option == 'edit') {
-                    alert("待续...");
+                if (option == 'edit') {
+                    var URL = "/manage/brand-list-update-action";
+                    params.id = _dom.attr("data-id");
+                    ajaxUpdate(URL, params, function (status) {
+                        if (status == "success") {
+                            _dom.find(".brand-list-col-1").text(params.brandName);
+                            _dom.find(".brand-list-col-2").text(params.brandSign);
+                            _dom = null;
+                        }
+                    });
                 }
-            } else {
-                alert("请再检查");
             }
         }
 
@@ -75,18 +95,20 @@ require(['jquery'], function ($) {
                 async: true,
                 success: function (data) {
                     if (data.code == 200) {
-                        $(".brand-list-table").append('<li class="brand-list-row">' +
+                        console.log(data);
+                        $(".brand-list-table").append('<li class="brand-list-row" data-id=' + data.data.insertId + '>' +
                             '<span class="brand-list-col-1">' + params.brandName + '</span>' +
                             '<span class="brand-list-col-2">' + params.brandSign + '</span>' +
                             '<span class="brand-list-col-3">' +
-                            '<span>EDIT</span>' +
-                            '<span>DEL.</span>' +
+                            '<span class="edit">EDIT</span>' +
+                            '<span class="delete" data-id=' + data.data.insertId + '>DEL.</span>' +
                             '</span>');
                         closeFloat();
+                        init();
                     }
                 },
                 error: function (data) {
-                    alert("添加失败，请联系管理员");
+                    confirm("添加失败，请联系管理员");
                 }
             });
         }
@@ -140,10 +162,36 @@ require(['jquery'], function ($) {
                     }
                 },
                 error: function (data) {
-                    alert("出错啦，联系管理员");
+                    confirm("删除失败，联系管理员");
                 }
             });
         }
 
+        function ajaxUpdate(URL, params, callback) {
+            $.ajax({
+                url: URL,
+                data: params,
+                type: "POST",
+                dataType: "json",
+                async: true,
+                success: function (data) {
+                    if (data.code == 200) {
+                        callback("success");
+                    }
+                },
+                error: function (data) {
+                    confirm("更新失败，请联系管理员");
+                }
+            });
+        }
+
+        function getOriginalData(t) {
+            var brandName = t.closest(".brand-list-row").find(".brand-list-col-1").text();
+            var brandSign = t.closest(".brand-list-row").find(".brand-list-col-2").text();
+            $("#brandName").val(brandName);
+            $("#brandSign").val(brandSign);
+
+            _dom = t.closest(".brand-list-row");
+        }
     });
 });

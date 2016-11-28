@@ -36,6 +36,16 @@ module.exports = {
         manageDao.deleteById(params, function (json) {
             callback(json);
         })
-    }
+    },
 
+    /**
+     * 品牌编辑 service
+     * @param params
+     * @param callback
+     */
+    brandListUpdate: function (params, callback) {
+        manageDao.updateById(params, function (json) {
+            callback(json);
+        })
+    }
 };

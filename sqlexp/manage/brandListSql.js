@@ -15,5 +15,10 @@ module.exports = {
     /**
      * 通过 id 删除
      */
-    deleteById: "DELETE FROM brand WHERE id=?"
+    deleteById: "DELETE FROM brand WHERE id=?",
+
+    /**
+     * 通过 id 更新
+     */
+    updateById: "UPDATE brand SET brand_name=?, brand_sign=? WHERE id=?"
 };

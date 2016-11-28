@@ -34,7 +34,7 @@
 
             <ul class="brand-list-table">
                 <% data.forEach(function (data) { %>
-                <li class="brand-list-row">
+                <li class="brand-list-row" data-id="<%= data.id %>">
                     <span class="brand-list-col-1"><%= data.brand_name %></span>
                     <span class="brand-list-col-2"><%= data.brand_sign %></span>
                     <span class="brand-list-col-3">
@@ -60,7 +60,7 @@
             </div>
         </div>
 
-        <div class="brand-list-float" id="create-edit-float">
+        <div class="brand-list-float" id="create-edit-float" data-option="">
             <div class="brand-list-option-box">
                 <div class="brand-list-float-cancel">&times;</div>
                 <div class="brand-list-option-box-item">

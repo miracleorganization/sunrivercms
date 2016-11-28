@@ -65,5 +65,26 @@ module.exports = {
             }
             callback(json);
         })
+    },
+
+    /**
+     * 通过 id 更新
+     * @param params
+     * @param callback
+     */
+    updateById: function (params, callback) {
+        var con = dbConnection.connectServer();
+        con.query(brandListSql.updateById, [params.brandName, params.brandSign, params.id], function (err, result) {
+            var json = new BaseJson();
+            if (result) {
+                json.code = jc.SUCCESS;
+                json.msg = jc.MSG_SUCCESS;
+                json.data = result;
+            } else {
+                json.code = jc.ERROR;
+                json.msg = jc.MSG_ERROR;
+            }
+            callback(json);
+        });
     }
 };
