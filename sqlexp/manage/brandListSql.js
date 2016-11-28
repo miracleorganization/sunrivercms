@@ -10,5 +10,10 @@ module.exports = {
     /**
      * 插入
      */
-    insert: "INSERT brand(brand_name, brand_sign) VALUES(?, ?)"
+    insert: "INSERT brand(brand_name, brand_sign) VALUES(?, ?)",
+
+    /**
+     * 通过 id 删除
+     */
+    deleteById: "DELETE FROM brand WHERE id=?"
 };

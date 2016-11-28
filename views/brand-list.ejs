@@ -38,9 +38,9 @@
                     <span class="brand-list-col-1"><%= data.brand_name %></span>
                     <span class="brand-list-col-2"><%= data.brand_sign %></span>
                     <span class="brand-list-col-3">
-                 <span>EDIT</span>
-                 <span>DEL.</span>
-                 </span>
+                         <span class="edit">EDIT</span>
+                         <span class="delete" data-id="<%= data.id %>">DEL.</span>
+                    </span>
                 </li>
                 <% }) %>
             </ul>
@@ -51,11 +51,11 @@
                 <div class="brand-list-float-cancel">&times;</div>
                 <div class="brand-list-item-warning">
                     SURE TO DELETE ？
-                    <p>路易威登</p>
+                    <p></p>
                 </div>
                 <div class="brand-list-item-option">
-                    <button class="brand-list-item-option-1">CANCEL</button>
-                    <button class="brand-list-item-option-2">CONFIRM</button>
+                    <button class="brand-list-item-option-1" id="delete-cancel">CANCEL</button>
+                    <button class="brand-list-item-option-2" id="delete-confirm">CONFIRM</button>
                 </div>
             </div>
         </div>

@@ -10,6 +10,7 @@ require(['jquery'], function ($) {
             $("#create").on("click", openCreateFloat);
             $(".brand-list-float-cancel, .brand-list-item-option-1").on("click", closeFloat);
             $("#create-edit-float .brand-list-item-option-2").on("click", {option: "new"}, submit);
+            $(".brand-list-row .delete").on("click", deleteBrand);
         }
 
         /**
@@ -62,7 +63,7 @@ require(['jquery'], function ($) {
         }
 
         /**
-         * ajax数据发送
+         * 新建品牌 ajax 数据发送
          */
         function ajaxNew(URL, params) {
             var result = undefined;
@@ -85,10 +86,63 @@ require(['jquery'], function ($) {
                     }
                 },
                 error: function (data) {
-                    result = "ERROR";
+                    alert("添加失败，请联系管理员");
                 }
             });
-            return result;
+        }
+
+        /**
+         * 删除品牌
+         */
+        function deleteBrand() {
+            var params = {};
+            var _id = $(this).attr('data-id');
+            var _name = $(this).closest(".brand-list-row").find(".brand-list-col-1").text();
+            params.id = _id;
+            openConfirmFloat(_name, params);
+        }
+
+        /**
+         * confirm 删除确认框浮层
+         * @param name
+         * @param params
+         */
+        function openConfirmFloat(name, params) {
+            $("#confirm-float").show();
+            $(".brand-list-item-warning p").text(name);
+            $("#delete-cancel").on("click", function () {
+                $(".brand-list-float").hide();
+                $(".brand-list-item-warning p").text("");
+            });
+            $("#delete-confirm").on("click", function () {
+                $(".brand-list-float").hide();
+                $(".brand-list-item-warning p").text("");
+                ajaxDelete(params);
+            })
+        }
+
+        /**
+         * 删除品牌 ajax
+         * @param URL
+         * @param params
+         */
+        function ajaxDelete(params) {
+            var URL = "/manage/brand-list-delete-action";
+            $.ajax({
+                url: URL,
+                data: params,
+                type: "POST",
+                dataType: "json",
+                async: true,
+                success: function (data) {
+                    if (data.code == 200) {
+                        $("[data-id=" + params.id + "]").closest(".brand-list-row").remove();
+                    }
+                },
+                error: function (data) {
+                    alert("出错啦，联系管理员");
+                }
+            });
         }
 
     });
