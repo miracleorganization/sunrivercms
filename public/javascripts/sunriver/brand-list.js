@@ -167,6 +167,12 @@ require(['jquery'], function ($) {
             });
         }
 
+        /**
+         * ajax 更新品牌
+         * @param URL
+         * @param params
+         * @param callback
+         */
         function ajaxUpdate(URL, params, callback) {
             $.ajax({
                 url: URL,
@@ -185,6 +191,10 @@ require(['jquery'], function ($) {
             });
         }
 
+        /**
+         * 修改品牌之前，获取品牌的原始数值
+         * @param t
+         */
         function getOriginalData(t) {
             var brandName = t.closest(".brand-list-row").find(".brand-list-col-1").text();
             var brandSign = t.closest(".brand-list-row").find(".brand-list-col-2").text();
