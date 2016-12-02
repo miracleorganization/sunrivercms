@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+
+    <title>SUNRIVER - 款式</title>
+
+    <link rel="stylesheet" type="text/css" href="../stylesheets/common.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style-list.css">
+
+    <script type="text/javascript" src="../javascripts/lib/require.js"></script>
+    <script src="../javascripts/require-config.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="main">
+
+        <% include top-navigation.ejs %>
+
+        <div class="brand-navigation">
+            <ul class="brand-navigation-box clearfix">
+                <li>PRODUCT MANAGE</li>
+                <li>STYLE LIST</li>
+            </ul>
+        </div>
+
+        <div class="style-list-content">
+            <div class="style-list-new-item">N</div>
+            <div class="style-list-title">
+                <span class="style-list-title-1">STYLE NAME</span>
+                <span class="style-list-title-2">STYLE SIGN</span>
+                <span class="style-list-title-3">OPTION</span>
+            </div>
+
+            <ul class="style-list-table">
+
+                <% data.forEach(function (data) { %>
+                <li class="style-list-row" data-id=<%= data.id %> >
+                    <span class="style-list-col-1"><%= data.style_name %></span>
+                    <span class="style-list-col-2"><%= data.style_sign %></span>
+                    <span class="style-list-col-3">
+                        <span>EDIT</span>
+                        <span>DEL.</span>
+                    </span>
+                </li>
+                <% }) %>
+
+            </ul>
+        </div>
+
+        <div class="style-list-float" id="dialog">
+            <div class="style-list-float-box">
+                <div class="style-list-float-cancel">&times;</div>
+                <div class="style-list-item-warning">
+                    SURE TO DELETE ？
+                    <p></p>
+                </div>
+                <div class="style-list-item-option">
+                    <button>CANCEL</button>
+                    <button>CONFIRM</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="style-list-float" id="create-edit">
+            <div class="style-list-option-box">
+                <div class="style-list-float-cancel">&times;</div>
+                <div class="style-list-option-box-item">
+                    <span><s></s>STYLE NAME:</span>
+                    <input type="text" placeholder="BETWEEN 1 AND 20">
+                </div>
+                <div class="style-list-option-box-item">
+                    <span><s></s>STYLE SIGN:</span>
+                    <input type="text" placeholder="BETWEEN 1 AND 20">
+                </div>
+                <div class="style-list-option-box-item-option">
+                    <button>CANCEL</button>
+                    <button>CONFIRM</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

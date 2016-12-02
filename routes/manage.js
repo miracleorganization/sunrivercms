@@ -3,7 +3,8 @@ var router = express.Router();
 var multiparty = require("multiparty");
 var fs = require('fs');
 var LoginFilter = require('../filter/login-filter');
-var brandLiseService = require('../service/manage/brandListService');
+var brandlistService = require('../service/manage/brandListService');
+var styleListService = require('../service/manage/styleListService');
 
 // wallet-new 添加钱包页面
 router.get("/wallet-new", function (req, res, next) {
@@ -70,7 +71,7 @@ router.get('/brand-list', function (req, res, next) {
     LoginFilter(req, res, function (status) {
         if (status) {
             var params = req.query;
-            brandLiseService.brandList(params, function (jsonResult) {
+            brandlistService.brandList(params, function (jsonResult) {
                 jsonResult.username = req.session.username;
                 jsonResult.login = req.session.login;
                 res.render('brand-list', jsonResult);
@@ -86,7 +87,7 @@ router.post('/brand-list-new-action', function (req, res, next) {
     LoginFilter(req, res, function (status) {
         if (status) {
             var params = req.body;
-            brandLiseService.brandListNew(params, function (jsonResult) {
+            brandlistService.brandListNew(params, function (jsonResult) {
                 res.json(jsonResult);
             })
         } else {
@@ -100,7 +101,7 @@ router.post('/brand-list-delete-action', function (req, res, next) {
     LoginFilter(req, res, function (status) {
         if (status) {
             var params = req.body;
-            brandLiseService.brandListDelete(params, function (jsonResult) {
+            brandlistService.brandListDelete(params, function (jsonResult) {
                 res.json(jsonResult);
             });
         } else {
@@ -114,13 +115,29 @@ router.post('/brand-list-update-action', function (req, res, next) {
     LoginFilter(req, res, function (status) {
         if (status) {
             var params = req.body;
-            brandLiseService.brandListUpdate(params, function (jsonResult) {
+            brandlistService.brandListUpdate(params, function (jsonResult) {
                 res.json(jsonResult);
             })
         } else {
             res.render('login');
         }
     })
+});
+
+// 款式列表
+router.get('/style-list', function (req, res, next) {
+    LoginFilter(req, res, function (status) {
+        if (status) {
+            var params = req.query;
+            styleListService.styleList(params, function (jsonResult) {
+                jsonResult.username = req.session.username;
+                jsonResult.login = req.session.login;
+                res.render('style-list', jsonResult);
+            });
+        } else {
+            res.render('login');
+        }
+    });
 });
 
 module.exports = router;
