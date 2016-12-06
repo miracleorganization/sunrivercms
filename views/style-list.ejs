@@ -25,7 +25,7 @@
         </div>
 
         <div class="style-list-content">
-            <div class="style-list-new-item">N</div>
+            <div class="style-list-new-item" id="create">N</div>
             <div class="style-list-title">
                 <span class="style-list-title-1">STYLE NAME</span>
                 <span class="style-list-title-2">STYLE SIGN</span>
@@ -62,24 +62,25 @@
             </div>
         </div>
 
-        <div class="style-list-float" id="create-edit">
+        <div class="style-list-float" id="create-edit-float">
             <div class="style-list-option-box">
                 <div class="style-list-float-cancel">&times;</div>
                 <div class="style-list-option-box-item">
                     <span><s></s>STYLE NAME:</span>
-                    <input type="text" placeholder="BETWEEN 1 AND 20">
+                    <input type="text" placeholder="BETWEEN 1 AND 20" id="params-style-name">
                 </div>
                 <div class="style-list-option-box-item">
                     <span><s></s>STYLE SIGN:</span>
-                    <input type="text" placeholder="BETWEEN 1 AND 20">
+                    <input type="text" placeholder="BETWEEN 1 AND 20" id="params-style-sign">
                 </div>
                 <div class="style-list-option-box-item-option">
                     <button>CANCEL</button>
-                    <button>CONFIRM</button>
+                    <button id="submit">CONFIRM</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript" src="../javascripts/sunriver/style-list.js"></script>
 </body>
 </html>
