@@ -30,9 +30,10 @@ module.exports = {
 
     /**
      * 通过 id 更新款式
+     * @param params
      * @param callback
      */
-    updataById: function (callback) {
+    updataById: function (params, callback) {
         var con = dbConnection.connectServer();
         con.query(styleListSql.updateById, function (err, result) {
             var json = new BaseJson();
@@ -49,12 +50,13 @@ module.exports = {
     },
 
     /**
-     * 插入
+     * 插入款式
+     * @param params
      * @param callback
      */
-    insert: function (callback) {
+    insert: function (params, callback) {
         var con = dbConnection.connectServer();
-        con.query(styleListSql.updateById, function (err, result) {
+        con.query(styleListSql.insert, [params.styleName, params.styleSign], function (err, result) {
             var json = new BaseJson();
             if (result) {
                 json.code = jc.SUCCESS;
@@ -70,11 +72,12 @@ module.exports = {
 
     /**
      * 通过 id 删除
+     * @param params
      * @param callback
      */
-    deleteById: function (callback) {
+    deleteById: function (params, callback) {
         var con = dbConnection.connectServer();
-        con.query(styleListSql.updateById, function (err, result) {
+        con.query(styleListSql.deleteById, function (err, result) {
             var json = new BaseJson();
             if (result) {
                 json.code = jc.SUCCESS;

@@ -48,11 +48,11 @@ require(['jquery'], function ($) {
             var params = searchData();
             if (params) {
                 if (option == 'new') {
-                    var URL = "/manage/brand-list-new-action";
+                    var URL = "/brand/brand-list-new-action";
                     ajaxNew(URL, params);
                 }
                 if (option == 'edit') {
-                    var URL = "/manage/brand-list-update-action";
+                    var URL = "/brand/brand-list-update-action";
                     params.id = _dom.attr("data-id");
                     ajaxUpdate(URL, params, function (status) {
                         if (status == "success") {
@@ -149,7 +149,7 @@ require(['jquery'], function ($) {
          * @param params
          */
         function ajaxDelete(params) {
-            var URL = "/manage/brand-list-delete-action";
+            var URL = "/brand/brand-list-delete-action";
             $.ajax({
                 url: URL,
                 data: params,

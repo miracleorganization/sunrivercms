@@ -10,6 +10,7 @@ require(['jquery'], function ($) {
         function init() {
             $("#create").on("click", openFloat);
             $("#submit").on("click", submitHandler);
+            $("#cancel-1, #cancel-2, #cancel-3, #cancel-4").on("click", closeFloat);
         }
 
         /**
@@ -17,6 +18,23 @@ require(['jquery'], function ($) {
          */
         function openFloat() {
             $("#create-edit-float").show();
+        }
+
+        /**
+         * 关闭浮层
+         */
+        function closeFloat() {
+            $("#create-edit-float").hide();
+            $("#dialog").hide();
+            clearData();
+        }
+
+        /**
+         * 情况浮层的内容
+         */
+        function clearData() {
+            $(".style-list-item-warning p").text("");
+            $("#params-style-name, #params-style-sign").val("");
         }
 
         /**
@@ -44,7 +62,7 @@ require(['jquery'], function ($) {
             if (!params.styleSign) {
                 return;
             }
-
+            console.log(111);
             submitAjax(params);
         }
 
@@ -54,13 +72,16 @@ require(['jquery'], function ($) {
          */
         function submitAjax(params) {
             $.ajax({
-                url: "",
+                url: "/style/style-new",
                 data: params,
                 type: "POST",
                 dataType: "json",
                 async: true,
                 success: function (data) {
-
+                    console.log(data);
+                    if (data.code == 200) {
+                        location.reload();
+                    }
                 },
                 error: function (data) {
 
