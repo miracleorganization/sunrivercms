@@ -6,10 +6,10 @@ require(['jquery'], function ($) {
 
     $(".top-navigation-level-1>li").on("mouseenter",function () {
         var dom = $(this).find(".top-navigation-level-2");
-        dom.stop().slideDown();
+        dom.stop().slideDown(300);
     }).on("mouseleave",function () {
         var dom = $(this).find(".top-navigation-level-2");
-        dom.stop().slideUp();
+        dom.stop().hide();
     });
 
     $(".welcome-information sup").on("click", function (e) {
