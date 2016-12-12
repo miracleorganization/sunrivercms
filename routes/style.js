@@ -96,4 +96,32 @@ router.post('/style-new', function (req, res, next) {
     });
 });
 
+// 编辑款式
+router.post('/style-edit', function (req, res, next) {
+    LoginFilter(req, res, function (status) {
+        if (status) {
+            var params = req.body;
+            styleListService.styleEditById(params, function (jsonResult) {
+                res.json(jsonResult);
+            })
+        } else {
+            res.render('login');
+        }
+    });
+});
+
+// 删除款式
+router.post('/style-delete', function (req, res, next) {
+    LoginFilter(req, res, function (status) {
+        if (status) {
+            var params = req.body;
+            styleListService.styleDeleteById(params, function (jsonResult) {
+                res.json(jsonResult);
+            })
+        } else {
+            res.render('login');
+        }
+    });
+});
+
 module.exports = router;

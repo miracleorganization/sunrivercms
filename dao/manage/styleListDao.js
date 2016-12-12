@@ -35,7 +35,7 @@ module.exports = {
      */
     updataById: function (params, callback) {
         var con = dbConnection.connectServer();
-        con.query(styleListSql.updateById, function (err, result) {
+        con.query(styleListSql.updateById, [params.styleName, params.styleSign, params.id], function (err, result) {
             var json = new BaseJson();
             if (result) {
                 json.code = jc.SUCCESS;
@@ -77,7 +77,7 @@ module.exports = {
      */
     deleteById: function (params, callback) {
         var con = dbConnection.connectServer();
-        con.query(styleListSql.deleteById, function (err, result) {
+        con.query(styleListSql.deleteById, [params.id], function (err, result) {
             var json = new BaseJson();
             if (result) {
                 json.code = jc.SUCCESS;

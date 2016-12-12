@@ -32,7 +32,7 @@ module.exports = {
      * @param callback
      */
     styleEditById: function (params, callback) {
-        styleListDao.updataById(function (result) {
+        styleListDao.updataById(params, function (result) {
             callback(result);
         })
     },
@@ -43,7 +43,7 @@ module.exports = {
      * @param callback
      */
     styleDeleteById: function (params, callback) {
-        styleListDao.deleteById(function (result) {
+        styleListDao.deleteById(params, function (result) {
             callback(result);
         })
     }

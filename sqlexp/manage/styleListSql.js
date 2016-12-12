@@ -10,7 +10,7 @@ module.exports = {
     /**
      * 更新款式
      */
-    updateById: "update style set style_name = ?, set style_sign = ? where id = ?",
+    updateById: "update style set style_name = ?, style_sign = ? where id = ?",
 
     /**
      * 查询所有款式

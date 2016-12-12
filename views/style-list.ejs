@@ -39,8 +39,8 @@
                     <span class="style-list-col-1"><%= data.style_name %></span>
                     <span class="style-list-col-2"><%= data.style_sign %></span>
                     <span class="style-list-col-3">
-                        <span>EDIT</span>
-                        <span>DEL.</span>
+                        <span data-cu="edit">EDIT</span>
+                        <span data-cu="del">DEL.</span>
                     </span>
                 </li>
                 <% }) %>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="style-list-item-option">
                     <button id="cancel-2">CANCEL</button>
-                    <button>CONFIRM</button>
+                    <button id="confirm">CONFIRM</button>
                 </div>
             </div>
         </div>

@@ -95,7 +95,6 @@ require(['jquery'], function ($) {
                 async: true,
                 success: function (data) {
                     if (data.code == 200) {
-                        console.log(data);
                         $(".brand-list-table").append('<li class="brand-list-row" data-id=' + data.data.insertId + '>' +
                             '<span class="brand-list-col-1">' + params.brandName + '</span>' +
                             '<span class="brand-list-col-2">' + params.brandSign + '</span>' +
