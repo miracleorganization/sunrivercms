@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+
+    <title>SUNRIVER - 颜色</title>
+
+    <link rel="stylesheet" type="text/css" href="../stylesheets/common.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/color-list.css">
+
+    <script type="text/javascript" src="../javascripts/lib/require.js"></script>
+    <script src="../javascripts/require-config.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="main">
+
+        <% include top-navigation.ejs %>
+
+        <div class="color-new-box">
+            <p>ADD NEW COLOR</p>
+            <form action="" method="get">
+                <input type="text" name="colorName" placeholder="COLOR NAME(E.G. 红色)">
+                <input type="text" name="colorSign" placeholder="COLOR Sign(E.G. RED)">
+                <input type="text" name="colorCode" placeholder="COLOR CODE(E.G. #CC0000)">
+                <div class="input-color-show"></div>
+                <input type="submit" value="ADD COLOR">
+            </form>
+        </div>
+
+        <ul class="color-new-content clearfix">
+            <% data.forEach(function(data){ %>
+            <li>
+                <div class="color-show" style="background: <%= data.color_code %>;"></div>
+                <div class="color-info">
+                    <p>COLOR NAME:
+                        <span><%= data.color_name %></span>
+                    </p>
+                    <p>COLOR SIGN:
+                        <span><%= data.color_sign %></span>
+                    </p>
+                    <p>COLOR CODE:
+                        <span><%= data.color_code %></span>
+                    </p>
+                </div>
+                <div>
+                    <button class="delete-color" data-id="<%= data.id %>">DELETE</button>
+                </div>
+            </li>
+            <% }) %>
+        </ul>
+
+    </div>
+</div>
+</body>
+</html>

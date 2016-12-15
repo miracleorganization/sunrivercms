@@ -10,6 +10,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var brand = require('./routes/brand');
 var style = require('./routes/style');
+var color = require('./routes/color');
 
 var app = express();
 
@@ -36,6 +37,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/brand', brand);
 app.use('/style', style);
+app.use('/color', color);
 
 
 // // catch 404 and forward to error handler

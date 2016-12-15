@@ -2,7 +2,7 @@
  * Created by wangyouzhi on 2016/11/27.
  */
 
-var manageDao = require('../../dao/manage/brandListDao');
+var brandListDao = require('../../dao/manage/brandListDao');
 
 module.exports = {
     /**
@@ -11,7 +11,7 @@ module.exports = {
      * @param callback
      */
     brandList: function (parames, callback) {
-        manageDao.queryAll(function (json) {
+        brandListDao.queryAll(function (json) {
             callback(json);
         })
     },
@@ -22,7 +22,7 @@ module.exports = {
      * @param callback
      */
     brandListNew: function (params, callback) {
-        manageDao.insert(params, function (json) {
+        brandListDao.insert(params, function (json) {
             callback(json);
         })
     },
@@ -33,7 +33,7 @@ module.exports = {
      * @param callback
      */
     brandListDelete: function (params, callback) {
-        manageDao.deleteById(params, function (json) {
+        brandListDao.deleteById(params, function (json) {
             callback(json);
         })
     },
@@ -44,7 +44,7 @@ module.exports = {
      * @param callback
      */
     brandListUpdate: function (params, callback) {
-        manageDao.updateById(params, function (json) {
+        brandListDao.updateById(params, function (json) {
             callback(json);
         })
     }
