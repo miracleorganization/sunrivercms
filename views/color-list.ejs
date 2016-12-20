@@ -19,10 +19,10 @@
 
         <div class="color-new-box">
             <p>ADD NEW COLOR</p>
-            <form action="" method="get">
-                <input type="text" name="colorName" placeholder="COLOR NAME(E.G. 红色)">
-                <input type="text" name="colorSign" placeholder="COLOR Sign(E.G. RED)">
-                <input type="text" name="colorCode" placeholder="COLOR CODE(E.G. #CC0000)">
+            <form action="/color/color-new" method="get">
+                <input type="text" name="colorName" placeholder="COLOR NAME(E.G. 红色)" required>
+                <input type="text" name="colorSign" placeholder="COLOR Sign(E.G. RED)" required>
+                <input type="text" name="colorCode" placeholder="COLOR CODE(E.G. #CC0000)" required id="input-color-code">
                 <div class="input-color-show"></div>
                 <input type="submit" value="ADD COLOR">
             </form>
@@ -52,5 +52,6 @@
 
     </div>
 </div>
+<script type="text/javascript" src="../javascripts/sunriver/color-list.js"></script>
 </body>
 </html>
