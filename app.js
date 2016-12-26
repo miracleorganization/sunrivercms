@@ -11,6 +11,7 @@ var users = require('./routes/users');
 var brand = require('./routes/brand');
 var style = require('./routes/style');
 var color = require('./routes/color');
+var material = require('./routes/material');
 
 var app = express();
 
@@ -38,6 +39,7 @@ app.use('/users', users);
 app.use('/brand', brand);
 app.use('/style', style);
 app.use('/color', color);
+app.use('/material', material);
 
 
 // // catch 404 and forward to error handler
