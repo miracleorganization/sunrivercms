@@ -17,6 +17,7 @@
     "morgan": "~1.7.0",
     "multiparty": "^4.1.2",
     "mysql": "latest",
+    "orm": "^3.2.2",
     "serve-favicon": "~2.3.0",
     "util": "^0.10.3"
   }

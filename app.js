@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var User = require('./routes/user/UserRouter');
 var brand = require('./routes/brand');
 var style = require('./routes/style');
 var color = require('./routes/color');
@@ -35,7 +35,7 @@ app.use(session({
 }));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/user', User);
 app.use('/brand', brand);
 app.use('/style', style);
 app.use('/color', color);

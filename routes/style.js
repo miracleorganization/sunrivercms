@@ -46,7 +46,7 @@ router.post('/wallet-new-action', function (req, res, next) {
          size: 4207 } ] }
 
          headers:
-         { 'content-disposition': 'form-data; name="fileName"; filename="wallte01.jpg"','content-type': 'image/jpeg' }
+         { 'content-disposition': 'form-constant; name="fileName"; filename="wallte01.jpg"','content-type': 'image/jpeg' }
          */
 
         var oldPath = files.file[0].path;

@@ -356,8 +356,8 @@ var requirejs, require, define;
         function removeScript(name) {
             if (isBrowser) {
                 each(scripts(), function (scriptNode) {
-                    if (scriptNode.getAttribute('data-requiremodule') === name &&
-                            scriptNode.getAttribute('data-requirecontext') === context.contextName) {
+                    if (scriptNode.getAttribute('constant-requiremodule') === name &&
+                            scriptNode.getAttribute('constant-requirecontext') === context.contextName) {
                         scriptNode.parentNode.removeChild(scriptNode);
                         return true;
                     }
@@ -1219,7 +1219,7 @@ var requirejs, require, define;
 
             return {
                 node: node,
-                id: node && node.getAttribute('data-requiremodule')
+                id: node && node.getAttribute('constant-requiremodule')
             };
         }
 
@@ -1853,8 +1853,8 @@ var requirejs, require, define;
             //In the browser so use a script tag
             node = req.createNode(config, moduleName, url);
 
-            node.setAttribute('data-requirecontext', context.contextName);
-            node.setAttribute('data-requiremodule', moduleName);
+            node.setAttribute('constant-requirecontext', context.contextName);
+            node.setAttribute('constant-requiremodule', moduleName);
 
             //Set up load listener. Test attachEvent first because IE9 has
             //a subtle issue in its addEventListener and script onload firings
@@ -1947,7 +1947,7 @@ var requirejs, require, define;
         return interactiveScript;
     }
 
-    //Look for a data-main script attribute, which could also adjust the baseUrl.
+    //Look for a constant-main script attribute, which could also adjust the baseUrl.
     if (isBrowser && !cfg.skipDataMain) {
         //Figure out baseUrl. Get it from the script tag with require.js in it.
         eachReverse(scripts(), function (script) {
@@ -1957,17 +1957,17 @@ var requirejs, require, define;
                 head = script.parentNode;
             }
 
-            //Look for a data-main attribute to set main script for the page
-            //to load. If it is there, the path to data main becomes the
+            //Look for a constant-main attribute to set main script for the page
+            //to load. If it is there, the path to constant main becomes the
             //baseUrl, if it is not already set.
-            dataMain = script.getAttribute('data-main');
+            dataMain = script.getAttribute('constant-main');
             if (dataMain) {
                 //Preserve dataMain in case it is a path (i.e. contains '?')
                 mainScript = dataMain;
 
                 //Set final baseUrl if there is not already an explicit one.
                 if (!cfg.baseUrl) {
-                    //Pull off the directory of data-main for use as the
+                    //Pull off the directory of constant-main for use as the
                     //baseUrl.
                     src = mainScript.split('/');
                     mainScript = src.pop();
@@ -1985,7 +1985,7 @@ var requirejs, require, define;
                     mainScript = dataMain;
                 }
 
-                //Put the data-main script in the files to load.
+                //Put the constant-main script in the files to load.
                 cfg.deps = cfg.deps ? cfg.deps.concat(mainScript) : [mainScript];
 
                 return true;
@@ -2047,9 +2047,9 @@ var requirejs, require, define;
             node = currentlyAddingScript || getInteractiveScript();
             if (node) {
                 if (!name) {
-                    name = node.getAttribute('data-requiremodule');
+                    name = node.getAttribute('constant-requiremodule');
                 }
-                context = contexts[node.getAttribute('data-requirecontext')];
+                context = contexts[node.getAttribute('constant-requirecontext')];
             }
         }
 

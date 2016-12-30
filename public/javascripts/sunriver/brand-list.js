@@ -26,10 +26,10 @@ require(['jquery'], function ($) {
 
             if (e.data.option == "edit") {
                 getOriginalData(t);
-                $("#create-edit-float").attr("data-option", "edit");
+                $("#create-edit-float").attr("constant-option", "edit");
             }
             if (e.data.option == "new") {
-                $("#create-edit-float").attr("data-option", "new");
+                $("#create-edit-float").attr("constant-option", "new");
             }
         }
 
@@ -44,7 +44,7 @@ require(['jquery'], function ($) {
          * 提交
          */
         function submit() {
-            var option = $("#create-edit-float").attr("data-option");
+            var option = $("#create-edit-float").attr("constant-option");
             var params = searchData();
             if (params) {
                 if (option == 'new') {
@@ -53,7 +53,7 @@ require(['jquery'], function ($) {
                 }
                 if (option == 'edit') {
                     var URL = "/brand/brand-list-update-action";
-                    params.id = _dom.attr("data-id");
+                    params.id = _dom.attr("constant-id");
                     ajaxUpdate(URL, params, function (status) {
                         if (status == "success") {
                             _dom.find(".brand-list-col-1").text(params.brandName);
@@ -95,12 +95,12 @@ require(['jquery'], function ($) {
                 async: true,
                 success: function (data) {
                     if (data.code == 200) {
-                        $(".brand-list-table").append('<li class="brand-list-row" data-id=' + data.data.insertId + '>' +
+                        $(".brand-list-table").append('<li class="brand-list-row" constant-id=' + data.data.insertId + '>' +
                             '<span class="brand-list-col-1">' + params.brandName + '</span>' +
                             '<span class="brand-list-col-2">' + params.brandSign + '</span>' +
                             '<span class="brand-list-col-3">' +
                             '<span class="edit">EDIT</span>' +
-                            '<span class="delete" data-id=' + data.data.insertId + '>DEL.</span>' +
+                            '<span class="delete" constant-id=' + data.data.insertId + '>DEL.</span>' +
                             '</span>');
                         closeFloat();
                         init();
@@ -117,7 +117,7 @@ require(['jquery'], function ($) {
          */
         function deleteBrand() {
             var params = {};
-            var _id = $(this).attr('data-id');
+            var _id = $(this).attr('constant-id');
             var _name = $(this).closest(".brand-list-row").find(".brand-list-col-1").text();
             params.id = _id;
             openConfirmFloat(_name, params);
@@ -157,7 +157,7 @@ require(['jquery'], function ($) {
                 async: true,
                 success: function (data) {
                     if (data.code == 200) {
-                        $("[data-id=" + params.id + "]").closest(".brand-list-row").remove();
+                        $("[constant-id=" + params.id + "]").closest(".brand-list-row").remove();
                     }
                 },
                 error: function (data) {

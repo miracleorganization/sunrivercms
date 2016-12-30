@@ -3,8 +3,8 @@
  */
 var dbConnection = require("./../dbConnection");
 var colorListSql = require("../../sqlexp/manage/colorListSql");
-var BaseJson = require("../../data/baseJson");
-var jc = require("../../data/jsonConst");
+var BaseJson = require('../CommonJson');
+var jc = require("../../constant/ResultConstant");
 
 module.exports = {
 

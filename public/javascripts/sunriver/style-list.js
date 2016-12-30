@@ -10,8 +10,8 @@ require(['jquery'], function ($) {
         function init() {
             $("#create").on("click", openFloat);
             $("#cancel-1, #cancel-2, #cancel-3, #cancel-4").on("click", closeFloat);
-            $("[data-cu='edit']").on("click", getEditDate);
-            $("[data-cu='del']").on("click", getItemId);
+            $("[constant-cu='edit']").on("click", getEditDate);
+            $("[constant-cu='del']").on("click", getItemId);
         }
 
         /**
@@ -103,7 +103,7 @@ require(['jquery'], function ($) {
         function getEditDate(e) {
             var dom = $(this).closest("li.style-list-row");
             var params = {};
-            params.id = dom.attr('data-id');
+            params.id = dom.attr('constant-id');
             params.styleName = dom.find(".style-list-col-1").text();
             params.styleSign = dom.find(".style-list-col-2").text();
 
@@ -149,7 +149,7 @@ require(['jquery'], function ($) {
         function getItemId() {
             var dom = $(this).closest("li.style-list-row");
             var params = {};
-            params.id = dom.attr("data-id");
+            params.id = dom.attr("constant-id");
             params.styleName = dom.find(".style-list-col-1").text();
 
             openDialog(params);

@@ -1,7 +1,7 @@
 var dbConnection = require("./../dbConnection");
 var brandListSql = require("../../sqlexp/manage/brandListSql");
-var BaseJson = require("../../data/baseJson");
-var jc = require("../../data/jsonConst");
+var BaseJson = require('../CommonJson');
+var jc = require("../../constant/ResultConstant");
 
 module.exports = {
     /**

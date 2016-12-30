@@ -15,7 +15,7 @@ require(['jquery'], function ($) {
          * 删除颜色事件
          */
         function deleteColorHandler() {
-            var _id = $(this).attr('data-id');
+            var _id = $(this).attr('constant-id');
             var _dom = $(this).closest("li");
             $.ajax({
                 url: '/color/color-delete',
