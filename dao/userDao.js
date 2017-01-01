@@ -3,7 +3,7 @@ var dbConnection = require("./dbConnection");
 module.exports = {
     insert: function(username, password, sex, callback){
     	var con = dbConnection.connectServer();
-    	con.query('INSERT INTO user(username, password, sex) VALUES(?, ?, ?)',[username, password, sex], function(err, result){
+    	con.query('INSERT INTO login(username, password, sex) VALUES(?, ?, ?)',[username, password, sex], function(err, result){
     		if(result){
     			result = {
     				code: "200",
@@ -15,7 +15,7 @@ module.exports = {
     },
     queryByUsername: function(username, password, callback){
         var con = dbConnection.connectServer();
-        con.query("SELECT * FROM user WHERE username=? AND password=?",[username, password], function(err, result){
+        con.query("SELECT * FROM login WHERE username=? AND password=?",[username, password], function(err, result){
             if(err){
                 return err;
             }

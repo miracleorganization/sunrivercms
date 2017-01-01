@@ -14,7 +14,7 @@ UserMapper.user.create(User, function (err, instance) {
     console.log("password: " + instance.password);
 });
 
-// UserMapper.user.find(User, function (err, res) {
+// UserMapper.login.find(User, function (err, res) {
 //     if (err) throw err;
 //
 //     res.forEach(function (item) {

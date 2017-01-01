@@ -7,7 +7,7 @@ var db = ormConnection.connect;
 
 module.exports = {
     /**
-     * user mapper
+     * login mapper
      */
     user: db.define('user', {
         id: Number,
