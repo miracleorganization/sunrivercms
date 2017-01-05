@@ -18,14 +18,14 @@ router.post('/login', function (req, res) {
     var username = request.username;
     var password = request.password;
 
-    var UserBoRequest = {};
+    var UserBoRequest = new Object();
     UserBoRequest.username = username;
     UserBoRequest.password = password;
 
     UserService.queryUser(UserBoRequest, function (jsonResult) {
         if (jsonResult.code == ResultConstant.CODE.SUCCESS) {
             req.session.username = username;
-            req.login = true;
+            req.session.login = true;
             res.render('back-index', jsonResult)
         } else {
             res.render('login', jsonResult)

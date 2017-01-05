@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-var index = require('./routes/index');
 var User = require('./routes/user/UserRouter');
+var index = require('./routes/index');
 var brand = require('./routes/brand');
 var style = require('./routes/style');
 var color = require('./routes/color');
@@ -20,16 +20,16 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-    name: 'sunriverlogginstatus',
-    secret: 'SUNRIVER mycms YYYYmmDDHHMMSS',
-    cookie: {maxAge: null}, //设置成 null ，就会成为浏览器 session，浏览器不关闭，session 一直保留；浏览器关闭，session 消失
+    name: 'SunriverLoginInformation',
+    secret: 'SUNRIVERManageSystem',
+    cookie: {maxAge: null}, // 设置成 null，就会成为浏览器 session，浏览器不关闭，session 一直保留；浏览器关闭，session 消失
     resave: false,
     saveUninitialized: true
 }));
