@@ -3,16 +3,20 @@ var router = express.Router();
 var UserService = require('../../service/user/UserService');
 var ResultConstant = require('../../constant/ResultConstant');
 
-// 登陆页面
+/**
+ * 登陆页面
+ */
 router.get('/login', function (req, res) {
     if (req.session.login) {
         res.redirect("/back-index");
     } else {
-        res.render('login', {});
+        res.render('login');
     }
 });
 
-// 登陆 action
+/**
+ * 登陆 action
+ */
 router.post('/login', function (req, res) {
     var request = req.body;
     var username = request.username;
@@ -26,13 +30,12 @@ router.post('/login', function (req, res) {
         if (jsonResult.code == ResultConstant.CODE.SUCCESS) {
             req.session.username = username;
             req.session.login = true;
-            res.render('back-index', jsonResult)
-        } else {
-            res.render('login', jsonResult)
-        }
 
+            res.redirect('/back-index');
+        } else {
+            res.render('/login', jsonResult);
+        }
     });
 });
-
 
 module.exports = router;

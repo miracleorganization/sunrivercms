@@ -4,7 +4,7 @@
 
 var express = require('express');
 var router = express.Router();
-var LoginFilter = require('../filter/login-filter');
+var LoginFilter = require('../filter/LoginFilter');
 
 router.get('/material-list', function (req, res, next) {
     LoginFilter(req, res, function (status) {

@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var LoginFilter = require('../filter/login-filter');
+var LoginFilter = require('../filter/LoginFilter');
 
-router.get('/back-index', function (req, res, next) {
+router.get('/back-index', function (req, res) {
     LoginFilter(req, res, function (status) {
         if (status) {
             var jsonResult = {};

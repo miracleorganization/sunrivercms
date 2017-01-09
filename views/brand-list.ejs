@@ -34,12 +34,12 @@
 
             <ul class="brand-list-table">
                 <% data.forEach(function (data) { %>
-                <li class="brand-list-row" data-id="<%= data.id %>">
+                <li class="brand-list-row">
                     <span class="brand-list-col-1"><%= data.brand_name %></span>
                     <span class="brand-list-col-2"><%= data.brand_sign %></span>
-                    <span class="brand-list-col-3">
+                    <span class="brand-list-col-3" data-id="<%= data.id %>">
                          <span class="edit">EDIT</span>
-                         <span class="delete" data-id="<%= data.id %>">DEL.</span>
+                         <span class="delete">DEL.</span>
                     </span>
                 </li>
                 <% }) %>
@@ -72,13 +72,14 @@
                     <input type="text" placeholder="BETWEEN 1 AND 20" id="brandSign">
                 </div>
                 <div class="brand-list-option-box-item-option">
-                    <button class="brand-list-item-option-1">CANCEL</button>
-                    <button class="brand-list-item-option-2">CONFIRM</button>
+                    <button class="brand-list-item-option-1" id="create-edit-cancel">CANCEL</button>
+                    <button class="brand-list-item-option-2" id="create-edit-confirm">CONFIRM</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript" src="../javascripts/sunriver/brand-list.js"></script>
+
+<script type="text/javascript" src="../javascripts/sunriver/brand/brandListViewController.js"></script>
 </body>
 </html>

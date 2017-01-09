@@ -30,27 +30,6 @@ module.exports = {
         });
     },
     /**
-     * 查询 username 是否存在
-     * @param UserBoRequest
-     * @param callback
-     */
-    queryUser: function (UserBoRequest, callback) {
-        var jsonResult = new CommonJson();
-        var UserPoRequest = UserBoRequest;
-
-        UserMapper.user.find(UserPoRequest, function (err, UserPoResult) {
-            if (err) {
-                jsonResult.message = err;
-            } else {
-                var UserBoResult = UserPoResult;
-                jsonResult.code = ResultConstant.CODE.SUCCESS;
-                jsonResult.message = ResultConstant.MESSAGE.DEFAULT_SUCCESS_MESSAGE;
-                jsonResult.data = UserBoResult;
-            }
-            callback(jsonResult);
-        });
-    },
-    /**
      * 通过 username 删除用户
      * @param UserBoRequest
      * @param callback
@@ -89,6 +68,26 @@ module.exports = {
             }
             callback(jsonResult);
         });
-    }
+    },
+    /**
+     * 查询 username 是否存在
+     * @param UserBoRequest
+     * @param callback
+     */
+    queryUser: function (UserBoRequest, callback) {
+        var jsonResult = new CommonJson();
+        var UserPoRequest = UserBoRequest;
 
+        UserMapper.user.find(UserPoRequest, function (err, UserPoResult) {
+            if (err) {
+                jsonResult.message = err;
+            } else {
+                var UserBoResult = UserPoResult;
+                jsonResult.code = ResultConstant.CODE.SUCCESS;
+                jsonResult.message = ResultConstant.MESSAGE.DEFAULT_SUCCESS_MESSAGE;
+                jsonResult.data = UserBoResult;
+            }
+            callback(jsonResult);
+        });
+    }
 };

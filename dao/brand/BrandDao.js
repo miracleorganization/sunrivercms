@@ -7,27 +7,6 @@ var ResultConstant = require('../../constant/ResultConstant');
 
 module.exports = {
     /**
-     * 查询所有的品牌
-     * @param BrandBoRequest
-     * @param callback
-     */
-    queryAll: function (BrandBoRequest, callback) {
-        var jsonResult = new CommonJson();
-        var BrandPoRequest = BrandBoRequest;
-
-        BrandMapper.brand.find(BrandPoRequest, function (err, BrandPoResult) {
-            if (err) {
-                jsonResult.message = err;
-            } else {
-                var BrandBoResult = BrandPoResult;
-                jsonResult.code = ResultConstant.CODE.SUCCESS;
-                jsonResult.message = ResultConstant.MESSAGE.DEFAULT_SUCCESS_MESSAGE;
-                jsonResult.data = BrandBoResult;
-            }
-            callback(jsonResult);
-        })
-    },
-    /**
      * 插入品牌信息
      * @param BrandBoRequest
      * @param callback
@@ -37,7 +16,6 @@ module.exports = {
         var BrandPoRequest = BrandBoRequest;
 
         BrandMapper.brand.create(BrandPoRequest, function (err, BrandPoResult) {
-            console.log(BrandPoResult);
             if (err) {
                 jsonResult.message = err;
             } else {
@@ -99,5 +77,26 @@ module.exports = {
             }
             callback(jsonResult);
         });
+    },
+    /**
+     * 查询所有的品牌
+     * @param BrandBoRequest
+     * @param callback
+     */
+    queryAll: function (BrandBoRequest, callback) {
+        var jsonResult = new CommonJson();
+        var BrandPoRequest = BrandBoRequest;
+
+        BrandMapper.brand.find(BrandPoRequest, function (err, BrandPoResult) {
+            if (err) {
+                jsonResult.message = err;
+            } else {
+                var BrandBoResult = BrandPoResult;
+                jsonResult.code = ResultConstant.CODE.SUCCESS;
+                jsonResult.message = ResultConstant.MESSAGE.DEFAULT_SUCCESS_MESSAGE;
+                jsonResult.data = BrandBoResult;
+            }
+            callback(jsonResult);
+        })
     }
 };

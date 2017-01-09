@@ -16,23 +16,6 @@ module.exports = {
         })
     },
     /**
-     * 查询用户是否唯一存在
-     * @param UserBoRequest
-     * @param callback
-     */
-    queryUser: function (UserBoRequest, callback) {
-        UserDao.queryUser(UserBoRequest, function (jsonResult) {
-            if (jsonResult.data.length == 1) {
-                jsonResult.data[0].password = null;
-                callback(jsonResult);
-            } else {
-                jsonResult.code = ResultConstant.CODE.ERROR;
-                jsonResult.message = "账号和密码不匹配";
-                callback(jsonResult);
-            }
-        })
-    },
-    /**
      * 删除用户
      * @param UserBoRequest
      * @param callback
@@ -52,5 +35,21 @@ module.exports = {
             callback(jsonResult);
         })
     },
-
+    /**
+     * 查询用户是否唯一存在
+     * @param UserBoRequest
+     * @param callback
+     */
+    queryUser: function (UserBoRequest, callback) {
+        UserDao.queryUser(UserBoRequest, function (jsonResult) {
+            if (jsonResult.data.length == 1) {
+                jsonResult.data[0].password = null;
+                callback(jsonResult);
+            } else {
+                jsonResult.code = ResultConstant.CODE.ERROR;
+                jsonResult.message = "账号和密码不匹配";
+                callback(jsonResult);
+            }
+        })
+    }
 };

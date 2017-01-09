@@ -3,7 +3,7 @@
  */
 var express = require("express");
 var router = express.Router();
-var LoginFilter = require('../filter/login-filter');
+var LoginFilter = require('../filter/LoginFilter');
 var colorListService = require('../service/manage/colorListService');
 
 /**

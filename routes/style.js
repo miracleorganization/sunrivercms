@@ -3,7 +3,7 @@
  */
 var express = require("express");
 var router = express.Router();
-var LoginFilter = require('../filter/login-filter');
+var LoginFilter = require('../filter/LoginFilter');
 var styleListService = require('../service/manage/styleListService');
 
 // wallet-new 添加钱包页面
