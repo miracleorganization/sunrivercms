@@ -26,16 +26,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session(
-    {
-        name: 'SunRiver',
-        secret: 'd0a9a2fx7u9h3rfx1267f',
-        // 设置成 null，就会成为浏览器 session，浏览器不关闭，session 一直保留；浏览器关闭，session 消失
-        cookie: {maxAge: null},
-        resave: false,
-        saveUninitialized: true
-    }
-));
+app.use(session({
+    name: 'SunRiver',
+    secret: 'd0a9a2fx7u9h3rfx1267f',
+    // 设置成 null，就会成为浏览器 session，浏览器不关闭，session 一直保留；浏览器关闭，session 消失
+    cookie: {maxAge: null},
+    resave: false,
+    saveUninitialized: true
+}));
 
 app.use('/', index);
 app.use('/user', User);
@@ -44,7 +42,7 @@ app.use('/style', style);
 app.use('/color', color);
 app.use('/material', material);
 
-
+// 如果以上路由都没有进入，就进入错误路由捕获
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
