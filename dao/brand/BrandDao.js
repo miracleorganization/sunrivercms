@@ -15,7 +15,7 @@ module.exports = {
         var jsonResult = new CommonJson();
         var BrandPoRequest = BrandBoRequest;
 
-        BrandMapper.brand.create(BrandPoRequest, function (err, BrandPoResult) {
+        BrandMapper.Brand.create(BrandPoRequest, function (err, BrandPoResult) {
             if (err) {
                 jsonResult.message = err;
             } else {
@@ -36,13 +36,14 @@ module.exports = {
         var jsonResult = new CommonJson();
         var BrandPoRequest = BrandBoRequest;
 
-        BrandMapper.brand.find(BrandPoRequest).remove(function (err) {
+        BrandMapper.Brand.find({id: BrandPoRequest.id}).remove(function (err) {
             if (err) {
                 jsonResult.message = err;
             } else {
+                var BrandPoResult = BrandPoRequest;
                 jsonResult.code = ResultConstant.CODE.SUCCESS;
                 jsonResult.message = ResultConstant.MESSAGE.DEFAULT_SUCCESS_MESSAGE;
-                jsonResult.data = null;
+                jsonResult.data = BrandPoResult;
             }
             callback(jsonResult);
         })
@@ -56,26 +57,28 @@ module.exports = {
         var jsonResult = new CommonJson();
         var BrandPoRequest = BrandBoRequest;
 
-        BrandMapper.brand.find({id: BrandPoRequest.id}, function (err, BrandPoResult) {
+        BrandMapper.Brand.find({id: BrandPoRequest.id}, function (err, BrandPoResult) {
             if (err) {
                 jsonResult.message = err;
             } else {
                 if (BrandPoResult.length == 1) {
                     for (var item in BrandPoResult[0]) {
-                        BrandPoResult[item] = BrandBoRequest[item];
+                        BrandPoResult[0][item] = BrandBoRequest[item];
                     }
                     BrandPoResult[0].save(function (err) {
                         if (err) {
                             jsonResult.message = err;
                         } else {
+                            var BrandPoResult = BrandPoRequest;
                             jsonResult.code = ResultConstant.CODE.SUCCESS;
                             jsonResult.message = ResultConstant.MESSAGE.DEFAULT_SUCCESS_MESSAGE;
-                            jsonResult.data = null;
+                            jsonResult.data = BrandPoResult;
                         }
+                        // save 操作为异步操作，所以 callback 需要放置在 save() 方法内，否则 callback 会提前返回错误的 result
+                        callback(jsonResult);
                     });
                 }
             }
-            callback(jsonResult);
         });
     },
     /**
@@ -87,7 +90,7 @@ module.exports = {
         var jsonResult = new CommonJson();
         var BrandPoRequest = BrandBoRequest;
 
-        BrandMapper.brand.find(BrandPoRequest, function (err, BrandPoResult) {
+        BrandMapper.Brand.find(BrandPoRequest, function (err, BrandPoResult) {
             if (err) {
                 jsonResult.message = err;
             } else {

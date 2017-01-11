@@ -9,7 +9,7 @@ module.exports = {
     /**
      * login mapper
      */
-    user: db.define('user', {
+    User: db.define('user', {
         id: Number,
         username: String,
         password: String,

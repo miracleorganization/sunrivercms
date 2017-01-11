@@ -5,7 +5,7 @@ var BrandMapper = require("./../../brand/BrandMapper");
 
 var Brand = {brand_name: '112', brand_sign: '112'};
 
-BrandMapper.brand.create(Brand, function (err, instance) {
+BrandMapper.Brand.create(Brand, function (err, instance) {
     if (err) throw err;
 
     console.log("id: " + instance.id);

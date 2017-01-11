@@ -13,6 +13,51 @@ define(['jquery'], function ($) {
             data: request,
             type: "POST",
             dataType: "json",
+            async: true,
+            success: function (jsonResult) {
+                callback(jsonResult);
+            },
+            error: function () {
+                var error = new Error('请求或者服务器错误');
+                console.log(error);
+            }
+        });
+    }
+
+    /**
+     * 更新品牌
+     * @param request
+     * @param callback
+     */
+    function updateBrand(request, callback) {
+        $.ajax({
+            url: "/brandx/brand-edit",
+            data: request,
+            type: "POST",
+            dataType: "json",
+            async: true,
+            success: function (jsonResult) {
+                callback(jsonResult);
+            },
+            error: function () {
+                var error = new Error('请求或者服务器错误');
+                console.log(error);
+            }
+        });
+    }
+
+    /**
+     * 更新品牌
+     * @param request
+     * @param callback
+     */
+    function deleteBrand(request, callback) {
+        $.ajax({
+            url: "/brandx/brand-delete",
+            data: request,
+            type: "POST",
+            dataType: "json",
+            async: true,
             success: function (jsonResult) {
                 callback(jsonResult);
             },
@@ -24,6 +69,8 @@ define(['jquery'], function ($) {
     }
 
     return {
-        createBrand: createBrand
+        createBrand: createBrand,
+        updateBrand: updateBrand,
+        deleteBrand: deleteBrand
     }
 });

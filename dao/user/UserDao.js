@@ -15,7 +15,7 @@ module.exports = {
         var jsonResult = new CommonJson();
         var UserPoRequest = UserBoRequest;
 
-        UserMapper.user.create(UserPoRequest, function (err, UserPoResult) {
+        UserMapper.User.create(UserPoRequest, function (err, UserPoResult) {
             if (err) {
                 jsonResult.message = err;
             } else {
@@ -37,7 +37,7 @@ module.exports = {
     deleteByUsername: function (UserBoRequest, callback) {
         var jsonResult = new CommonJson();
         var UserPoRequest = UserBoRequest;
-        UserMapper.user.find(UserPoRequest, function (err, UserPoResult) {
+        UserMapper.User.find(UserPoRequest, function (err, UserPoResult) {
             if (err) {
                 jsonResult.message = err;
             } else {
@@ -57,7 +57,7 @@ module.exports = {
     update: function (UserBoRequest, callback) {
         var jsonResult = new CommonJson();
         var UserPoRequest = UserBoRequest;
-        UserMapper.user.find(UserPoRequest, function (err, UserPoResult) {
+        UserMapper.User.find(UserPoRequest, function (err, UserPoResult) {
             if (err) {
                 jsonResult.message = err;
             } else {
@@ -78,7 +78,7 @@ module.exports = {
         var jsonResult = new CommonJson();
         var UserPoRequest = UserBoRequest;
 
-        UserMapper.user.find(UserPoRequest, function (err, UserPoResult) {
+        UserMapper.User.find(UserPoRequest, function (err, UserPoResult) {
             if (err) {
                 jsonResult.message = err;
             } else {

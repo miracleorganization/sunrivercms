@@ -9,7 +9,7 @@ module.exports = {
     /**
      * brand mapper
      */
-    brand: db.define('brand', {
+    Brand: db.define('brand', {
         id: Number,
         brand_name: String,
         brand_sign: String

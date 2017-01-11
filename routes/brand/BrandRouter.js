@@ -49,4 +49,48 @@ router.post('/brand-new', function (req, res) {
     })
 });
 
+/**
+ * 编辑品牌
+ */
+router.post('/brand-edit', function (req, res) {
+    LoginFilter(req, res, function (status) {
+        if (status) {
+            var request = req.body;
+            var BrandBoRequest = new Object();
+            BrandBoRequest.id = request.id;
+            BrandBoRequest.brand_name = request.brandName;
+            BrandBoRequest.brand_sign = request.brandSign;
+
+            BrandService.updateById(BrandBoRequest, function (jsonResult) {
+                if (jsonResult.code == ResultConstant.CODE.SUCCESS) {
+                    res.json(jsonResult);
+                }
+            })
+        } else {
+            res.redirect('/user/login');
+        }
+    })
+});
+
+/**
+ * 删除品牌
+ */
+router.post('/brand-delete', function (req, res) {
+    LoginFilter(req, res, function (status) {
+        if (status) {
+            var request = req.body;
+            var BrandBoRequest = new Object();
+            BrandBoRequest.id = request.id;
+
+            BrandService.deleteById(BrandBoRequest, function (jsonResult) {
+                if (jsonResult.code == ResultConstant.CODE.SUCCESS) {
+                    res.json(jsonResult);
+                }
+            })
+        } else {
+            res.redirect('/user/login');
+        }
+    })
+});
+
 module.exports = router;

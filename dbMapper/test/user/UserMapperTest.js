@@ -6,7 +6,7 @@ var UserMapper = require('../../user/UserMapper');
 var User = {username: 'e002', password: '002', level: 1};
 var User2 = {};
 
-UserMapper.user.create(User, function (err, instance) {
+UserMapper.User.create(User, function (err, instance) {
     if (err) throw err;
 
     console.log("id: " + instance.id);
