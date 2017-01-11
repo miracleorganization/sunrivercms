@@ -9,7 +9,6 @@ var session = require('express-session');
 var User = require('./routes/user/UserRouter');
 var Brand = require('./routes/brand/BrandRouter');
 var index = require('./routes/index');
-var brand = require('./routes/brand');
 var style = require('./routes/style');
 var color = require('./routes/color');
 var material = require('./routes/material');
@@ -40,8 +39,7 @@ app.use(session(
 
 app.use('/', index);
 app.use('/user', User);
-app.use('/brand', brand);
-app.use('/brandx', Brand);
+app.use('/brand', Brand);
 app.use('/style', style);
 app.use('/color', color);
 app.use('/material', material);

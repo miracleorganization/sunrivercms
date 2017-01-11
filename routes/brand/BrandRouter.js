@@ -10,7 +10,7 @@ var LoginFilter = require('../../filter/LoginFilter');
 /**
  * 获取品牌列表
  */
-router.get('/brand', function (req, res) {
+router.get('/brand-list', function (req, res) {
     LoginFilter(req, res, function (status) {
         if (status) {
             var BrandBoRequest = new Object();

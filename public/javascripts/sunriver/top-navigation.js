@@ -1,7 +1,6 @@
 /**
  * Created by wangyouzhi on 2016/11/24.
  */
-'use strict';
 require(['jquery'], function ($) {
 
     $(".top-navigation-level-1>li").on("mouseenter",function () {
@@ -12,7 +11,7 @@ require(['jquery'], function ($) {
         dom.stop().hide();
     });
 
-    $(".welcome-information sup").on("click", function (e) {
+    $(".welcome-information sup").on("click", function () {
         var dom = $(".welcome-information ul");
         dom.slideToggle(100);
     })
