@@ -10,7 +10,6 @@ var User = require('./routes/user/UserRouter');
 var Brand = require('./routes/brand/BrandRouter');
 var Style = require('./routes/style/StyleRouter');
 var index = require('./routes/index');
-var style = require('./routes/style');
 var color = require('./routes/color');
 var material = require('./routes/material');
 
