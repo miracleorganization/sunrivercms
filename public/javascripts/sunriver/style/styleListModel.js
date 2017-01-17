@@ -1,15 +1,11 @@
 /**
- * Created by wangyouzhi on 2017/1/9.
+ * @author wangyouzhi
+ * @date 2017/1/17
  */
 define(['jquery'], function ($) {
-    /**
-     * 创建品牌
-     * @param request
-     * @param callback
-     */
-    function createBrand(request, callback) {
+    function createStyle(request, callback) {
         $.ajax({
-            url: "/brand/brand-new",
+            url: "/style/style-add",
             data: request,
             type: "POST",
             dataType: "json",
@@ -24,14 +20,9 @@ define(['jquery'], function ($) {
         });
     }
 
-    /**
-     * 更新品牌
-     * @param request
-     * @param callback
-     */
-    function updateBrand(request, callback) {
+    function editStyle(request, callback) {
         $.ajax({
-            url: "/brand/brand-edit",
+            url: "/style/style-edit",
             data: request,
             type: "POST",
             dataType: "json",
@@ -46,14 +37,9 @@ define(['jquery'], function ($) {
         });
     }
 
-    /**
-     * 更新品牌
-     * @param request
-     * @param callback
-     */
-    function deleteBrand(request, callback) {
+    function deleteStyle(request, callback) {
         $.ajax({
-            url: "/brand/brand-delete",
+            url: "/style/style-delete",
             data: request,
             type: "POST",
             dataType: "json",
@@ -69,8 +55,8 @@ define(['jquery'], function ($) {
     }
 
     return {
-        createBrand: createBrand,
-        updateBrand: updateBrand,
-        deleteBrand: deleteBrand
-    }
+        createStyle: createStyle,
+        editStyle: editStyle,
+        deleteStyle: deleteStyle
+    };
 });

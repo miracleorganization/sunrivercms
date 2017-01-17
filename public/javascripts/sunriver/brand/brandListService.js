@@ -9,11 +9,11 @@ define(['jquery', 'sunriver/brand/brandListModel'], function ($, model) {
      * @param callback
      */
     function checkRequest(option, request, callback) {
-        if (request.brandName == undefined) {
+        if (request.brandName == undefined || request.brandName == "") {
             confirm("品牌名字不可以为空");
             return false;
         }
-        if (request.brandSign == undefined) {
+        if (request.brandSign == undefined || request.brandSign == "") {
             confirm("品牌标识符不可以为空");
             return false;
         }
@@ -21,6 +21,10 @@ define(['jquery', 'sunriver/brand/brandListModel'], function ($, model) {
             _createBrand(request, callback);
         }
         if (option == "edit") {
+            if (request.id == undefined || request.id == "") {
+                confirm("品牌标识符不可以为空");
+                return false;
+            }
             _editBrand(request, callback);
         }
     }

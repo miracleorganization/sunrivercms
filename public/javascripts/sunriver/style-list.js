@@ -81,7 +81,7 @@ require(['jquery'], function ($) {
          */
         function submitAjax(params) {
             $.ajax({
-                url: "/style/style-new",
+                url: "/style/style-add",
                 data: params,
                 type: "POST",
                 dataType: "json",
