@@ -12,8 +12,6 @@ define(['jquery', 'sunriver/style/styleListModel'], function ($, model) {
      * @returns {boolean}
      */
     function checkRequest(option, request, callback) {
-        console.log(option);
-        console.log(request);
         if (request.styleName == undefined || request.styleName == "") {
             confirm("缺少样式名字参数");
             return false;
@@ -30,11 +28,12 @@ define(['jquery', 'sunriver/style/styleListModel'], function ($, model) {
                 confirm("缺少样式 id 参数");
                 return false;
             }
+            _editStyle(request, callback);
         }
     }
 
     /**
-     *
+     * 新建
      * @param request
      * @param callback
      * @private
@@ -47,7 +46,30 @@ define(['jquery', 'sunriver/style/styleListModel'], function ($, model) {
         })
     }
 
+    /**
+     * 编辑
+     * @param request
+     * @param callback
+     * @private
+     */
+    function _editStyle(request, callback) {
+        model.editStyle(request, function (jsonResult) {
+            if (jsonResult.code == 200) {
+                callback(jsonResult.data);
+            }
+        })
+    }
+
+    function deleteStyle(request, callback) {
+        model.deleteStyle(request, function (jsonResult) {
+            if (jsonResult.code == 200) {
+                callback(jsonResult.data);
+            }
+        })
+    }
+
     return {
-        checkRequest: checkRequest
+        checkRequest: checkRequest,
+        deleteStyle: deleteStyle
     };
 });

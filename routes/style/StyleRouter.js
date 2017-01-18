@@ -81,8 +81,8 @@ router.post("/style-edit", function (req, res) {
             var request = req.body;
             var StyleBoRequest = new Object();
             StyleBoRequest.id = request.id;
-            StyleBoRequest.brand_name = request.brandName;
-            StyleBoRequest.brand_sign = request.brandSign;
+            StyleBoRequest.style_name = request.styleName;
+            StyleBoRequest.style_sign = request.styleSign;
 
             StyleService.updateById(StyleBoRequest, function (jsonResult) {
                 if (jsonResult.code == ResultConstant.CODE.SUCCESS) {

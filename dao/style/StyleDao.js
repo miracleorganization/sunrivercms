@@ -64,9 +64,9 @@ module.exports = {
             } else {
                 if (StylePoResult.length == 1) {
                     for (var item in StylePoResult[0]) {
-                        StylePoResult[0][item] = StylePoResult[item];
+                        StylePoResult[0][item] = StylePoRequest[item];
                     }
-                    StylePoResult[0][item].save(function (err) {
+                    StylePoResult[0].save(function (err) {
                         if (err) {
                             jsonResult.message = err;
                         } else {

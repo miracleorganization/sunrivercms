@@ -33,7 +33,7 @@ router.post('/login', function (req, res) {
 
             res.redirect('/back-index');
         } else {
-            res.render('/login', jsonResult);
+            res.render('login', jsonResult);
         }
     });
 });
