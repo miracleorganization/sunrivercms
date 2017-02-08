@@ -10,7 +10,7 @@ router.get('/back-index', function (req, res) {
             jsonResult.loggin = req.session.username;
             res.render("back-index", jsonResult);
         } else {
-            res.render("login");
+            res.redirect("/user/login");
         }
     });
 });

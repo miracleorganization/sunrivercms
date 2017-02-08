@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SUNRIVER - 材质</title>
+
+    <link rel="stylesheet" type="text/css" href="../stylesheets/common.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/material-list.css">
+
+    <script type="text/javascript" src="../javascripts/lib/require.js"></script>
+    <script src="../javascripts/require-config.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="main">
+
+        <% include top-navigation.ejs %>
+
+        <div class="brand-navigation">
+            <ul class="brand-navigation-box clearfix">
+                <li>PRODUCT MANAGE</li>
+                <li>MATERIAL LIST</li>
+            </ul>
+        </div>
+
+        <div class="material-table">
+            <form action="/material/material-new" enctype="multipart/form-data" method="post">
+                <input type="text" placeholder="材质类型" name="materialType">
+                <input type="text" placeholder="材质标识符" name="materialSign">
+                <input type="file" name="materialPhoto" multiple="multiple">
+                <input type="submit" value="创建">
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="/javascripts/sunriver/style/styleListViewController.js"></script>
+</body>
+</html>
